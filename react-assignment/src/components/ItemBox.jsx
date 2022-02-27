@@ -59,10 +59,10 @@ const StyledTile = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
-  border: 5px solid var(--tileborder);
+  border: 10px solid #00749F;
   background-color: #006181;
   box-sizing: border-box;
   margin: 10px;
@@ -77,6 +77,10 @@ const StyledTile = styled(motion.div)`
     height: 200px;
     width: 200px;
     margin: 0px;
+  }
+  @media (max-width:500px)
+  {
+      font-size:.8rem;
   }
 `;
 

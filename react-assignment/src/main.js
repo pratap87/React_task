@@ -23,6 +23,11 @@ const StyledInput = styled.input`
     margin: 0;
   }
   -moz-appearance: textfield;
+  @media (max-width:500px)
+  {
+    height:60px;
+    font-sie:0.1rem;
+  }
 `;
 
 const FormDiv = styled.div`
@@ -31,6 +36,14 @@ const FormDiv = styled.div`
 
   justify-content: center;
   align-items: center;
+  @media (max-width:500px)
+  {
+     width:80%;
+     margin-left:10%;
+     
+  justify-content: center;
+  align-items: center;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -45,6 +58,10 @@ const StyledButton = styled.button`
   cursor:pointer;
   justify-content: center;
   background-color: #faa916;
+  @media (max-width:500px)
+  {
+    height:66px;
+  }
 `;
 const ButtonGrp = styled.div`
   display: flex;
@@ -75,14 +92,23 @@ const MainComponent = () => {
   };
 
   const handleClick = (e) => {
-    const newvalue = parseInt(stripNonDigit(value));
 
-    console.log(typeof newvalue);
 
-    setdata([...data, newvalue]);
 
-    console.log(newvalue);
-    setValue("");
+    if(value!==''){
+        const newvalue = parseInt(stripNonDigit(value));
+
+  
+
+        setdata([...data, newvalue]);
+    
+     
+        setValue("");
+    }
+    else{
+        alert('Please Enter Numerical Value')
+    }
+
   };
 
   const onChange = (e) => {
@@ -91,7 +117,7 @@ const MainComponent = () => {
     setValue(isNaN(numValue) ? null : numValue);
   };
 
-  console.log(mean, median, stdDev, mode);
+  
   return (
     <>
       <Dashboard mean={mean} median={median} stdDev={stdDev} mode={mode} />
